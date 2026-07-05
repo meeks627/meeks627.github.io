@@ -802,6 +802,51 @@
       transform: translateY(0);
     }
 
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-glow);
+    }
+    .gallery-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 20px;
+    }
+    .gallery-placeholder span { font-size: 2.5rem; }
+    .gallery-placeholder p { font-size: 0.82rem; }
+    .gallery-placeholder small {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-content {
@@ -1113,13 +1158,36 @@
     </div>
   </section>
 
+  <!-- ═══ GALLERY ═══ -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Gallery</span>
+        <h2>Moments &amp; Highlights</h2>
+        <p>Pictures from hackathons, events, and achievements.</p>
+      </div>
+      <div class="gallery-grid stagger" id="galleryGrid">
+        <div class="gallery-card">
+          <img src="assets/gallery/img1.jpg" alt="Event photo 1"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="gallery-placeholder"><span>📸</span><p>Drop image here<br/><small>assets/gallery/img1.jpg</small></p></div>
+        </div>
+        <div class="gallery-card">
+          <img src="assets/gallery/img2.jpg" alt="Event photo 2"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="gallery-placeholder"><span>📸</span><p>Drop image here<br/><small>assets/gallery/img2.jpg</small></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ CERTIFICATES ═══ -->
   <section id="certificates">
     <div class="container">
       <div class="section-header fade-in">
         <span class="label">Learning</span>
         <h2>Certificates</h2>
-        <p>Continuous learning &mdash; hover to see details. Add your cert images in <code>assets/certs/</code>.</p>
+        <p>Continuous learning &mdash; expanding my knowledge every day.</p>
       </div>
       <div class="certs-grid stagger" id="certsGrid">
         <div class="cert-card">
@@ -1137,10 +1205,15 @@
           <h4>TOSHUB Hackathon</h4>
           <p>Participation Certificate</p>
         </div>
-        <div class="cert-card" style="border-style:dashed;border-color:var(--text-muted);">
-          <div class="cert-icon">✏️</div>
-          <h4>Add Your Own</h4>
-          <p style="font-size:0.75rem;">Edit this card in index.html or add cert images to assets/certs/</p>
+        <div class="cert-card">
+          <div class="cert-icon">🏆</div>
+          <h4>NiMeche Innovation Challenge</h4>
+          <p>Participation Certificate</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🌍</div>
+          <h4>Futurize</h4>
+          <p>Participation Certificate</p>
         </div>
       </div>
     </div>

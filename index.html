@@ -593,11 +593,15 @@
       gap: 16px;
     }
     .cert-card {
-      padding: 20px;
+      position: relative;
       border-radius: var(--radius);
+      overflow: hidden;
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      text-align: center;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: var(--transition);
       cursor: default;
     }
@@ -606,27 +610,33 @@
       border-color: var(--accent-glow);
       box-shadow: var(--shadow);
     }
-    .cert-card .cert-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
+    .cert-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
     }
-    .cert-card h4 {
+    .cert-card .cert-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 20px;
+      text-align: center;
+    }
+    .cert-card .cert-text .cert-icon {
+      font-size: 2rem;
+    }
+    .cert-card .cert-text h4 {
       font-size: 0.92rem;
       font-weight: 600;
-      margin-bottom: 4px;
     }
-    .cert-card p {
+    .cert-card .cert-text p {
       font-size: 0.8rem;
       color: var(--text-muted);
+      margin: 0;
     }
-    .cert-card .add-cert {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      font-size: 0.78rem;
-      color: var(--accent);
-      cursor: pointer;
     }
 
     /* ── RESUME ── */
@@ -1191,29 +1201,49 @@
       </div>
       <div class="certs-grid stagger" id="certsGrid">
         <div class="cert-card">
-          <div class="cert-icon">🎓</div>
-          <h4>SPARK Academy</h4>
-          <p>AI in Medical Imaging</p>
+          <img src="assets/certs/spark-academy.jpg" alt="SPARK Academy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="cert-text" style="display:none;">
+            <div class="cert-icon">🎓</div>
+            <h4>SPARK Academy</h4>
+            <p>AI in Medical Imaging</p>
+          </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🧠</div>
-          <h4>Deep Learning</h4>
-          <p>NVIDIA Deep Learning Institute</p>
+          <img src="assets/certs/nvidia-dli.jpg" alt="NVIDIA Deep Learning"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="cert-text" style="display:none;">
+            <div class="cert-icon">🧠</div>
+            <h4>Deep Learning</h4>
+            <p>NVIDIA Deep Learning Institute</p>
+          </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🚀</div>
-          <h4>TOSHUB Hackathon</h4>
-          <p>Participation Certificate</p>
+          <img src="assets/certs/toshub.jpg" alt="TOSHUB Hackathon"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="cert-text" style="display:none;">
+            <div class="cert-icon">🚀</div>
+            <h4>TOSHUB Hackathon</h4>
+            <p>Participation Certificate</p>
+          </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🏆</div>
-          <h4>NiMeche Innovation Challenge</h4>
-          <p>Participation Certificate</p>
+          <img src="assets/certs/nimeche.jpg" alt="NiMeche Innovation Challenge"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="cert-text" style="display:none;">
+            <div class="cert-icon">🏆</div>
+            <h4>NiMeche Innovation Challenge</h4>
+            <p>Participation Certificate</p>
+          </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🌍</div>
-          <h4>Futurize</h4>
-          <p>Participation Certificate</p>
+          <img src="assets/certs/futurize.jpg" alt="Futurize"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="cert-text" style="display:none;">
+            <div class="cert-icon">🌍</div>
+            <h4>Futurize</h4>
+            <p>Participation Certificate</p>
+          </div>
         </div>
       </div>
     </div>

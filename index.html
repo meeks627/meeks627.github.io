@@ -1412,6 +1412,7 @@
           <input type="email" id="formEmail" placeholder="Your Email" required />
           <input type="text" id="formSubject" placeholder="Subject" />
           <textarea id="formMessage" placeholder="Your Message" required></textarea>
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
           <button type="submit" class="btn btn-primary">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
@@ -1499,12 +1500,34 @@
         return;
       }
 
-      const mailtoLink = `mailto:odiwebenedict@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-      window.location.href = mailtoLink;
+      formStatus.textContent = 'Sending...';
+      formStatus.style.color = 'var(--text-secondary)';
 
-      formStatus.textContent = '✅ Redirecting to your email client...';
-      formStatus.style.color = '#22c55e';
-      contactForm.reset();
+      const data = new FormData();
+      data.append('access_key', '99d61f12-c4ce-4350-b7bf-4899288eb8ab');
+      data.append('name', name);
+      data.append('email', email);
+      data.append('subject', subject || 'Portfolio Contact');
+      data.append('message', message);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data,
+        });
+        const json = await res.json();
+        if (json.success) {
+          formStatus.textContent = '✅ Message sent successfully!';
+          formStatus.style.color = '#22c55e';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = 'Something went wrong, please try again.';
+          formStatus.style.color = '#ef4444';
+        }
+      } catch (err) {
+        formStatus.textContent = 'Network error — please try again.';
+        formStatus.style.color = '#ef4444';
+      }
     });
 
     // ── FOOTER YEAR ──

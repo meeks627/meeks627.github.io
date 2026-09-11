@@ -857,6 +857,44 @@
       opacity: 0.6;
     }
 
+    /* ── HARDWARE ── */
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .hardware-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+    .hardware-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-glow);
+    }
+    .hardware-card .hardware-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hardware-card .hardware-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hardware-card .hardware-name {
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-content {
@@ -1207,6 +1245,45 @@
         <div class="gallery-card">
           <img src="assets/gallery/img2.jpg" alt="Event photo 2"
                onerror="this.style.display='none'" />
+        </div>
+        <div class="gallery-card">
+          <img src="assets/gallery/pidec.jpg" alt="PIDEC"
+               onerror="this.style.display='none'" />
+        </div>
+        <div class="gallery-card">
+          <img src="assets/gallery/biodrive-2.0.jpg" alt="Biodrive 2.0"
+               onerror="this.style.display='none'" />
+        </div>
+        <div class="gallery-card">
+          <img src="assets/gallery/biodrive-3.0.jpg" alt="Biodrive 3.0"
+               onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HARDWARE PROTOTYPES ═══ -->
+  <section id="hardware">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Hardware</span>
+        <h2>Hardware Prototypes</h2>
+        <p>Physical devices built from the ground up &mdash; design, electronics, and fabrication.</p>
+      </div>
+      <div class="hardware-grid stagger" id="hardwareGrid">
+        <div class="hardware-card">
+          <div class="hardware-img">
+            <img src="assets/hardware/hemosense.png" alt="HemoSense prototype"
+                 onerror="this.style.display='none'" />
+          </div>
+          <div class="hardware-name">HemoSense</div>
+        </div>
+        <div class="hardware-card">
+          <div class="hardware-img">
+            <img src="assets/hardware/radtrack.jpg" alt="RadTrack V1 prototype"
+                 onerror="this.style.display='none'" />
+          </div>
+          <div class="hardware-name">RadTrack V1</div>
         </div>
       </div>
     </div>
